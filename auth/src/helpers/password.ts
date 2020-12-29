@@ -9,4 +9,4 @@ export class Password {
   static async compare(plainPassword: string, hashedPassword: string) {
     return bcrypt.compareSync(plainPassword, hashedPassword);
   }
-
+}
