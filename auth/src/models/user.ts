@@ -11,7 +11,7 @@ interface IUserAttrs {
 /**
  * User document.
  */
-interface IUserDocument extends IUserAttrs, mongoose.Document {}
+export interface IUserDocument extends IUserAttrs, mongoose.Document {}
 
 /**
  * User model.
