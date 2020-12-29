@@ -2,7 +2,7 @@ import { Router } from "express";
 
 const router = Router();
 
-router.get('/api/users/sign-up', (req, res) => {
+router.post('/api/users/sign-up', (req, res) => {
     res.send('Hi!')
 });
 
