@@ -7,8 +7,8 @@ export interface IErrorMessage {
 export abstract class CustomError extends Error {
     abstract statusCode: number;
 
-    constructor() {
-        super();
+    constructor(param?: any) {
+        super(param);
 
         Object.setPrototypeOf(this, CustomError.prototype);
     }
