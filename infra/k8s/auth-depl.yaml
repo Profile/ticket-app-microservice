@@ -15,7 +15,6 @@ spec:
       containers:
         - name: auth
           image: muhammadrza/auth
-          imagePullPolicy: Never
 ---
 apiVersion: v1
 kind: Service
