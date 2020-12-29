@@ -1,8 +1,9 @@
 import { Router, Request, Response } from "express";
-import { body, validationResult } from "express-validator";
+import {body, validationResult} from "express-validator";
 
 import { RequestValidationError } from "../errors/request-validation-error";
-import { DatabaseConnectionError } from "../errors/database-connection-error";
+import { IUserDocument, User } from "../models/user";
+import {BadRequestError} from "../errors/bad-request-error";
 
 const router = Router();
 
@@ -13,19 +14,27 @@ const validationSchema = [
         .withMessage('Password must be between 4 and 22 characters')
 ];
 
-router.post('/api/users/sign-up', validationSchema, (req: Request, res: Response) => {
+router.post('/api/users/sign-up', validationSchema, async (req: Request, res: Response) => {
     const errors = validationResult(req);
 
     if(!errors.isEmpty()) {
         throw new RequestValidationError(errors.array());
     }
 
-    throw new DatabaseConnectionError();
+    const { email, password } = req.body;
+    const lowerCaseEmail = email.toLowerCase();
 
-    res.send({
-        status: 'OK'
-    })
+    const existingUser: Array<IUserDocument> = await User.findOne({ email: lowerCaseEmail }).lean();
 
+    if(existingUser) {
+        throw new BadRequestError('Email is use');
+    }
+
+    const user = User.build({ email: lowerCaseEmail, password });
+
+    await user.save();
+
+    res.status(201).send(user)
 
 });
 
