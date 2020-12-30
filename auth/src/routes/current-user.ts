@@ -1,10 +1,16 @@
 import { Router } from "express";
 
 import { currentUser } from "../middlewares/current-user";
+import { requireAuth } from "../middlewares/require-auth";
 
 const router = Router();
 
-router.get('/api/users/current-user', currentUser, (req, res) => {
+const middlewares = [
+    requireAuth,
+    currentUser,
+];
+
+router.get('/api/users/current-user', ...middlewares, (req, res) => {
     res.send({
         currentUser: req.currentUser || null
     })
