@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
 /**
- * Logged user model.
+ * Logged in user model.
  * */
 interface IUserPayload {
     id: string;
