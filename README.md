@@ -5,4 +5,4 @@
 ## 2.run `eval $(minikube docker-env)`
 
 ### Create jwt secret
-`kubectl create generic jwt-secret --from-literal=JWT_KEY=secret`
+`kubectl create secret generic jwt-secret --from-literal=JWT_KEY=secret`
