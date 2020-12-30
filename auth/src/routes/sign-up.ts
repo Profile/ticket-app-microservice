@@ -2,9 +2,10 @@ import { Router, Request, Response } from "express";
 import {body, validationResult} from "express-validator";
 import jwt from "jsonwebtoken";
 
-import { RequestValidationError } from "../errors/request-validation-error";
 import { IUserDocument, User } from "../models/user";
-import {BadRequestError} from "../errors/bad-request-error";
+import { BadRequestError } from "../errors/bad-request-error";
+
+import { validateRequest } from "../middlewares/validate-request";
 
 const router = Router();
 
@@ -15,12 +16,12 @@ const validationSchema = [
         .withMessage('Password must be between 4 and 22 characters')
 ];
 
-router.post('/api/users/sign-up', validationSchema, async (req: Request, res: Response) => {
-    const errors = validationResult(req);
+const middlewares = [
+    validationSchema,
+    validateRequest
+];
 
-    if(!errors.isEmpty()) {
-        throw new RequestValidationError(errors.array());
-    }
+router.post('/api/users/sign-up', ...middlewares, async (req: Request, res: Response) => {
 
     const { email, password } = req.body;
     const lowerCaseEmail = email.toLowerCase();
