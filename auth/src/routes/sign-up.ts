@@ -38,7 +38,7 @@ router.post('/api/users/sign-up', validationSchema, async (req: Request, res: Re
     const userJwt = jwt.sign({
        id: user.id,
        email: user.email
-    }, '1');
+    }, process.env.JWT_KEY!);
 
     /** Store token on session object. */
     req.session = {
