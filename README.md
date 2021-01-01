@@ -25,6 +25,9 @@
 ## If you see on the below error please type on the screen `thisisunsafe`
 ![Invalid ssl](./ssl_error.png)
 
+## It should look like:
+![Fixed ssl](./ssl_after_type.png)
+
 ## Get secret list (optional)
 ###### Run `kubectl get secrets`
 
