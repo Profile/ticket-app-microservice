@@ -22,7 +22,7 @@
 ## Start skaffold
 #### Run `skaffold dev`
 
-## If you see on the below error please type on screen `thisisunsafe`
+## If you see on the below error please type on the screen `thisisunsafe`
 ![Invalid ssl](./ssl_error.png)
 
 ## Get secret list (optional)
