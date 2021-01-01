@@ -9,6 +9,7 @@
 
 ## Start your cluster:
 #### Run `minikube start`
+#### Run `minikube addons enable ingress`
 
 ## Create jwt secret
 #### Run `kubectl create secret generic jwt-secret --from-literal=JWT_KEY=secret`
@@ -21,6 +22,8 @@
 ## Start skaffold
 #### Run `skaffold dev`
 
+## If you see one the below error please type on screen `thisisunsafe`
+![Invalid ssl](./ssl_error.png)
 
 ## Get secret list (optional)
 ###### Run `kubectl get secrets`
