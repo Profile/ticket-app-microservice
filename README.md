@@ -15,7 +15,7 @@
 
 ## Add ip for to redirect domain
 #### Run `minikube ip` // Example result: `192.168.49.2`
-#### Add `192.168.49.2` ticket-app.dev in `/etc/hosts`
+#### Add `192.168.49.2 ticket-app.dev` in `/etc/hosts`
 
 
 ## Start skaffold
