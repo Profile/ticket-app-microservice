@@ -9,4 +9,4 @@ it('Should return a 201 status on successful signup', async () => {
             password: '123456'
         })
         .expect(201);
-}, 30000);
+});
