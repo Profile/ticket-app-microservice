@@ -13,9 +13,16 @@
 ## Create jwt secret
 #### Run `kubectl create secret generic jwt-secret --from-literal=JWT_KEY=secret`
 
+## Add ip for to redirect domain
+#### Run `minikube ip` // Example result: `192.168.49.2`
+#### Add `192.168.49.2` ticket-app.dev in `/etc/hosts`
+
+
 ## Start skaffold
 #### Run `skaffold dev`
 
 
 ## Get secret list (optional)
 ###### Run `kubectl get secrets`
+
+###### Permission for docker `exec /usr/bin/sg docker newgrp $(id -gn)`
