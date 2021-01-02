@@ -1,6 +1,5 @@
-import { Router } from "express";
-
 import { currentUser } from "@mtickets/common";
+import { Router } from "express";
 
 const router = Router();
 

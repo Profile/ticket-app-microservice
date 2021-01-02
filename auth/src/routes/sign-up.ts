@@ -1,11 +1,9 @@
+import { validateRequest, BadRequestError } from "@mtickets/common";
 import { Router, Request, Response } from "express";
-import {body, validationResult} from "express-validator";
+import { body } from "express-validator";
 import jwt from "jsonwebtoken";
 
 import { IUserDocument, User } from "../models/user";
-import { BadRequestError } from "../errors/bad-request-error";
-
-import { validateRequest } from "../middlewares/validate-request";
 
 const router = Router();
 
