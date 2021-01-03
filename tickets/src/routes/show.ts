@@ -1,8 +1,8 @@
-import express, { Request, Response } from 'express';
-import { NotFoundError } from '@sgtickets/common';
+import { NotFoundError } from '@mtickets/common';
+import { Router, Request, Response } from 'express';
 import { Ticket } from '../models/ticket';
 
-const router = express.Router();
+const router = Router();
 
 router.get('/api/tickets/:id', async (req: Request, res: Response) => {
   const ticket = await Ticket.findById(req.params.id);

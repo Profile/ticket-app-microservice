@@ -1,6 +1,6 @@
+import { requireAuth, validateRequest } from '@mtickets/common';
 import { Router, Request, Response } from 'express';
 import { body } from 'express-validator';
-import { requireAuth, validateRequest } from '@mtickets/common';
 import { Ticket } from '../models/ticket';
 
 const router = Router();
