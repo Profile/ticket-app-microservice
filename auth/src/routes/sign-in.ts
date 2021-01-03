@@ -35,7 +35,7 @@ router.post('/api/users/sign-in', ...middlewares, async (req: Request, res: Resp
 
     /** Generate web token. */
     const userJwt = jwt.sign({
-        id: existingUser.id,
+        id: existingUser._id,
         email: existingUser.email
     }, process.env.JWT_KEY!);
 
